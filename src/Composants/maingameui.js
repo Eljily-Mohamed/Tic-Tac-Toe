@@ -10,10 +10,10 @@ const Maingameui = function ({game}) {
              <div className="view-game">
                 {/* div for this turn game */}
                 <div className="turn-div">
-                   <div className="turn-x">
+                   <div className="turn turn-active">
                        <p>X's Turn</p>
                    </div>
-                   <div className="turn-o">
+                   <div className="turn">
                        <p>O's Turn</p>
                    </div>
                 </div>

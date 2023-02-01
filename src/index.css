@@ -100,7 +100,7 @@ body{
      margin: 10px auto;
      display: flex;
      justify-content: center;
-     border-radius: 25px;
+     border-radius: 7px;
 }
 
 .marks .mark-div {
@@ -159,3 +159,52 @@ body{
 .buttons button:hover {
        background-color: green;
 }
+
+/* start styling gameui page  */
+
+.gameui .maingameui {
+      width :500px;
+      margin: auto;
+      margin-top: 30px;
+      color : white; 
+}
+
+.gameui .maingameui .view-game{
+      width: auto;
+      margin: 0px 20px;
+      background-color: #fff;
+}
+
+.gameui .maingameui .view-game .turn-div {
+     width: 350px;
+     margin: 20px auto;
+     display: flex;
+     justify-content: center;
+     border-radius: 7px;
+
+}
+
+.gameui .maingameui .view-game .turn-div .turn {
+          width:calc((100% /2) - 20px);
+          display: flex;
+          justify-content: center;
+          margin:20px;
+          padding: 10px;
+          border-radius: 7px;
+          cursor: pointer;   
+}
+
+.gameui .maingameui .view-game .turn-div p  {
+     font-family: 'Abel', sans-serif;
+     font-size: 30px;
+     font-weight: 800;
+ }
+ 
+ .turn-div .turn-active {
+    background-color:#55bae9;
+ }
+ 
+ .turn-div .turn-active p{
+   color:#fff;
+ }
+ 
