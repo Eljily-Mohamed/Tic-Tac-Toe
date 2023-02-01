@@ -172,7 +172,6 @@ body{
 .gameui .maingameui .view-game{
       width: auto;
       margin: 0px 20px;
-      background-color: #fff;
 }
 
 .gameui .maingameui .view-game .turn-div {
@@ -181,7 +180,7 @@ body{
      display: flex;
      justify-content: center;
      border-radius: 7px;
-
+     background-color: #fff;
 }
 
 .gameui .maingameui .view-game .turn-div .turn {
