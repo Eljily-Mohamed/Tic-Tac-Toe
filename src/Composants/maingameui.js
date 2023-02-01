@@ -7,6 +7,24 @@ const Maingameui = function ({game}) {
     const [mark , setMark ] = useState (game.mark) ;
     const [player , setPlayer ] = useState(game.player);
     const places = ['0', '1', '2', '3','4','5' ,'6','7','8'];
+    
+     
+    // function fot move 
+
+    const move =  (e) => {
+         if(e.target.tagName === "DIV"){
+            console.log(e.target);
+
+         }
+         else{
+            console.log("nathing");
+         }
+    }
+
+    //function to check winner in this game 
+
+
+
     return (
         <div  className="maingameui">
              <div className="view-game">
@@ -21,13 +39,10 @@ const Maingameui = function ({game}) {
                 </div>
                 {/* Border jeux */}
                 <div className="border-div" >
-                    <div className="places">
-                        
-                    </div>
                     {/* differents place for play */}
                     {places.map(elem => ( 
-                        <div className="place-div">
-                           <img src={x} />
+                        <div className="place-div" data-place={elem} onClick={(e) => (move(e))}>
+                           {/* <img src={o} /> */}
                         </div>
                     ))}
                 </div>

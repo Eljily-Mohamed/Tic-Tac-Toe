@@ -165,8 +165,8 @@ body{
 .gameui .maingameui {
       width :500px;
       margin: auto;
-      margin-top: 30px;
-      background-color: #000;
+      margin-top:100px;
+      /* background-color: #000; */
 }
 
 .gameui .maingameui .view-game{
@@ -211,7 +211,7 @@ body{
  /* styling place de elementes in div border  */
 
  .view-game .border-div {
-     background-color: #ff615f;
+     /* background-color: #ff615f; */
      display: flex;
      flex-wrap: wrap;
      margin: 10px;
@@ -223,5 +223,11 @@ body{
       background-color: #fff;
       padding:40px;
       border-radius: 10px;
-      
+      display: flex;
+      justify-content:center;
+      cursor: pointer;
+ }
+
+ .place-div img{
+      width:50px;
  }
