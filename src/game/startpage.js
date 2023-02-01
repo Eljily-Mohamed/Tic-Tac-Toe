@@ -1,6 +1,6 @@
 import Mainstartpage from "../Composants/mainstartpage"; 
 
-const startpage = () => {
+const Startpage = () => {
        return (
             <div className="startPage">
                 <Mainstartpage/>
@@ -8,4 +8,4 @@ const startpage = () => {
        );
 } 
 
-export default startpage ;
+export default Startpage ;
