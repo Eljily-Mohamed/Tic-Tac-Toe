@@ -7,6 +7,7 @@ const Maingameui = function ({game}) {
     const [mark , setMark ] = useState (game.mark) ;
     const [player , setPlayer ] = useState(game.player);
     const places = ['0', '1', '2', '3','4','5' ,'6','7','8'];
+
     
     //const for turn game  
     const [turn , setTurn] = useState("x");
@@ -16,13 +17,13 @@ const Maingameui = function ({game}) {
          {id:0 , value:""}
     ]
     
-    const [placesDisponible , setPlacesdDisponible] = useState(places);
+    const [placeReserve , setPlaseReserve] = useState([{id:0, value:""}]);
      
     // function fot move 
 
     const move =  (e) => {
                 if(e.target.tagName === "DIV"){
-                    if(placesDisponible.includes(e.target.dataset.place)){
+                    if(true){
                     //etap1 change div active from turn 
                     const turn = document.querySelectorAll('.turn');
                     const image = document.createElement('img');
@@ -41,7 +42,9 @@ const Maingameui = function ({game}) {
                         setTurn('o');
                         e.target.appendChild(image);
                         //update places reserve 
-                        
+                        // setPlacesdDisponible(places.filter((ele) => {
+                        //     return ele != e.target.dataset.place}
+                        //     ));
                         
                     }
                     else{
@@ -49,9 +52,11 @@ const Maingameui = function ({game}) {
                         setTurn('x');
                         e.target.appendChild(image);
                         //and desactive this element 
-                        setPlacesdDisponible = places.filter((ele) => ele !=e.target.dataset.place);
+                        // setPlaseReserve(places.filter((ele) => {
+                        //     return ele != e.target.dataset.place}
+                        //     ));
                     }
-
+ 
                     //et
                         
                 }
@@ -65,6 +70,8 @@ const Maingameui = function ({game}) {
     //function to check winner in this game 
     
 
+
+    
    
     useEffect (() =>{
 
