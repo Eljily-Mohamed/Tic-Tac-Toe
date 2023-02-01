@@ -6,18 +6,14 @@ const Maingameui = function ({game}) {
     //on can declare function pour recupere la valeur de notre variables 
     const [mark , setMark ] = useState (game.mark) ;
     const [player , setPlayer ] = useState(game.player);
-    const places = ['0', '1', '2', '3','4','5' ,'6','7','8'];
+    const places = [0,1,2,3,4,5,6,7,8];
 
     
     //const for turn game  
     const [turn , setTurn] = useState("x");
-
-    //to get placeReserve
-    const placesReseve = [
-         {id:0 , value:""}
-    ]
     
-    const [placeReserve , setPlaseReserve] = useState([{id:0, value:""}]);
+    const [placeReserve , setPlaseReserve] = useState([]);
+    const [valeus , setValeus] = useState([]);
      
     // function fot move 
 
@@ -25,6 +21,16 @@ const Maingameui = function ({game}) {
                 if(e.target.tagName === "DIV"){
                     if(true){
                     //etap1 change div active from turn 
+                    //to get placeReserve
+                    const placesempty = [];
+                    const valuesArray = [];
+
+                    if(placeReserve.length>0){
+                        placeReserve.forEach((e) => placesempty.push(e))
+                    }
+                    if(valeus.length > 0){
+                        valeus.forEach((e) => valuesArray.push(e));
+                    }
                     const turn = document.querySelectorAll('.turn');
                     const image = document.createElement('img');
                     console.log(e.target.dataset.valeur);
@@ -41,20 +47,19 @@ const Maingameui = function ({game}) {
                         image.setAttribute('src',x);
                         setTurn('o');
                         e.target.appendChild(image);
-                        //update places reserve 
-                        // setPlacesdDisponible(places.filter((ele) => {
-                        //     return ele != e.target.dataset.place}
-                        //     ));
-                        
+                        placesempty.push(e.target.dataset.place);
+                        valuesArray.push(e.target.dataset.valeur);
+                        setPlaseReserve(placesempty);
+                        setValeus(valuesArray);
                     }
                     else{
                         image.setAttribute('src',o);
                         setTurn('x');
                         e.target.appendChild(image);
-                        //and desactive this element 
-                        // setPlaseReserve(places.filter((ele) => {
-                        //     return ele != e.target.dataset.place}
-                        //     ));
+                        placesempty.push(e.target.dataset.place);
+                        valuesArray.push(e.target.dataset.valeur);
+                        setPlaseReserve(placesempty);
+                        setValeus(valuesArray);
                     }
  
                     //et
@@ -68,8 +73,13 @@ const Maingameui = function ({game}) {
 
      //console.log(turn);
     //function to check winner in this game 
-    
+      
 
+    const checkWiner = () =>{
+           
+    }
+
+    //game-Over 
 
     
    
