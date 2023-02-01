@@ -7,7 +7,7 @@ const Maingameui = function ({game}) {
     const [mark , setMark ] = useState (game.mark) ;
     const [player , setPlayer ] = useState(game.player);
     const places = [0,1,2,3,4,5,6,7,8];
-
+    const globaleData = [];
     
     //const for turn game  
     const [turn , setTurn] = useState("x");
@@ -62,9 +62,7 @@ const Maingameui = function ({game}) {
                         setPlaseReserve(placesempty);
                         setValeus(valuesArray);
                     }
- 
-                    //et
-                        
+                 
                 }
               
             }else{
@@ -75,6 +73,8 @@ const Maingameui = function ({game}) {
         }
 
     //console.log(turn);
+
+    //function trie 
 
     //function to check winner in this game   
     const checkWiner = () =>{
@@ -94,9 +94,10 @@ const Maingameui = function ({game}) {
               meme choose pour y 
             */
              
-              if([])
-            
-
+              if(valeus[0]===valeus[2]===valeus[5]){
+                endGame(` this is winner ${valeus[0]}`)
+              }
+        
              setGameEnd(true);
            }//here in case drawing
            else {
@@ -107,6 +108,8 @@ const Maingameui = function ({game}) {
     }
 
 
+    console.log(valeus);
+    console.log(placeReserve);
     //game-Over 
     const endGame = (message) => {
          console.log("this is "+message);
