@@ -128,5 +128,18 @@ body{
 }
 
 .startPage .main-div .buttons {
-        
+     min-width:80%;
+     margin: 10px auto;
+     display: flex;
+     justify-content: center;
+     border-radius: 25px;  
+}
+
+.startPage .main-div .buttons button {
+         padding:10px 5px ;
+         cursor: pointer; 
+}
+
+.buttons button:hover {
+      
 }

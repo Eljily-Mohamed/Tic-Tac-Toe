@@ -57,12 +57,8 @@ const Mainstartpage = function () {
                 </div>
                 {/* div for le differents buttons */}
                 <div className="buttons">
-                     <div className="game-button-cpu">
-
-                     </div>
-                     <div className="game-button-player">
-
-                     </div>
+                     <button className="button-cpu" >New Game (vs CPU) </button>
+                     <button className="button-player">New Game (vs Player) </button>
                 </div>
              </div>
       
