@@ -41,6 +41,11 @@ const Maingameui = function ({game}) {
                         }
                     });
 
+
+
+                     /* [x][y]  if ([])*/
+
+
                     //etap2 change valeur to turn  et place icon
                     
                     if(e.target.dataset.valeur === 'x'){
@@ -91,7 +96,7 @@ const Maingameui = function ({game}) {
               meme choose pour y 
             */
            
-              
+
              setGameEnd(true);
            }//here in case drawing
            else {
