@@ -49,7 +49,7 @@ const Maingameui = function ({game}) {
                         setTurn('x');
                         e.target.appendChild(image);
                         //and desactive this element 
-                        placesReseve.push()
+                        setPlacesdDisponible = places.filter((ele) => ele !=e.target.dataset.place);
                     }
 
                     //et
