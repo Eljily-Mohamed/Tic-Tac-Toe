@@ -27,14 +27,14 @@ body{
 
 /* start style for page choose mark player */
 
-.startPage .logo {
+.App .logo {
      max-width:100%;
     /* background-color: black; */
      color:rgb(25, 129, 150);
      padding: 20px;
 }
 
-.startPage .logo p {
+.App .logo p {
        font-family: 'Abel', sans-serif;
        font-size: 30px;
        margin-left: 15px;
@@ -42,7 +42,7 @@ body{
        font-weight: 800;
 }
 
-.startPage .logo p span {
+.App .logo p span {
        color:black
 
 }
