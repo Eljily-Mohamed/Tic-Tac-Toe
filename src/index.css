@@ -1,13 +1,132 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* import fonts google for this project  */
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Jost:ital,wght@1,200&family=Poppins:ital,wght@0,200;1,100&family=Quicksand:wght@300;400&family=Roboto:ital,wght@0,300;1,100&display=swap');
+/* for using  font*/
+/* 
+    font-family: 'Abel', sans-serif;
+
+    font-family: 'Jost', sans-serif;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-family: 'Roboto', sans-serif;
+
+*/
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background-color: #eeeee4;
+}
+
+
+/* start style for page choose mark player */
+
+.startPage .logo {
+     max-width:100%;
+    /* background-color: black; */
+     color:rgb(25, 129, 150);
+     padding: 20px;
+}
+
+.startPage .logo p {
+       font-family: 'Abel', sans-serif;
+       font-size: 30px;
+       margin-left: 15px;
+       margin-top: 10px;
+       font-weight: 800;
+}
+
+.startPage .logo p span {
+       color:black
+
+}
+
+/* stling div pour choose  */
+
+.startPage .main-div {
+   /* background-color: chocolate; */
+   margin:100px auto;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.startPage .main-div .marks-text{
+      width:100%;
+      display: flex;
+      justify-content: center;
+     /* background-color: aqua; */
+}
+
+.startPage .main-div .marks-text img {
+      width:80px;
+}
+
+.startPage .main-div .choix-mark {
+        width: 65%;
+        background-color: #1f3741;
+        margin:25px auto;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 7px;
+}
+
+.startPage .main-div .choix-mark .desc-choix {
+        width: 80%;
+        /* background-color: #98abb7; */
+        margin: auto;
+        display: flex;
+        justify-content: center;
+}
+
+.desc-choix p{
+      font-family: 'Abel', sans-serif;
+      font-size: 20px;
+      margin-left: 15px;
+      margin-top: 10px;
+      font-weight: 800;
+      color: #aabec5;
+}
+
+.startPage .main-div .choix-mark .marks{
+     min-width:80%;
+     background-color: #1a2b33;
+     margin: 10px auto;
+     display: flex;
+     justify-content: center;
+     border-radius: 25px;
+}
+
+.marks .mark-div {
+     min-width: calc((80% / 2) - 20px); 
+     max-width: auto;
+     display: flex;
+     justify-content: center;
+     margin:10px;
+     border-radius: 7px;
+     cursor: pointer;
+}
+
+.marks .mark-div p  {
+    font-family: 'Abel', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: #aabec5;
+}
+
+.marks .mark-active {
+   background-color:#abbdc9;
+}
+
+.marks .mark-active p{
+  color:#1b2932;
+}
+
+.startPage .main-div .buttons {
+        
 }

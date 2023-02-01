@@ -1,0 +1,4 @@
+
+/*etape1 */
+/*creation de start game qui contient choix de mark et aussi contient*/
+/*type de jeux with palyer ou bien with palyer normal locale*/
