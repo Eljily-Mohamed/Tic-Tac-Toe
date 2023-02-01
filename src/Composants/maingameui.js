@@ -1,6 +1,6 @@
 import { useEffect , useState } from "react";
-// import x from "../assest/x.png";
-// import o from "../assest/o.png";
+import x from "../assest/x.png";
+import o from "../assest/o.png";
 
 const Maingameui = function ({game}) {
     //on can declare function pour recupere la valeur de notre variables 
@@ -21,42 +21,41 @@ const Maingameui = function ({game}) {
     // function fot move 
 
     const move =  (e) => {
-         if(e.target.tagName === "DIV"){
+         if(x==0){
+                if(e.target.tagName === "DIV"){
+                    //etap1 change div active from turn 
+                    const turn = document.querySelectorAll('.turn');
+                    const image = document.createElement('img');
+                    console.log(e.target.dataset.valeur);
+                    turn.forEach((ele) => {
+                        ele.classList.remove('turn-active');
+                        if(ele.dataset.div != e.target.dataset.valeur){
+                            ele.classList.add('turn-active');
+                        }
+                    });
 
+                    //etap2 change valeur to turn  
+                    
+                    if(e.target.dataset.valeur === 'x'){
+                        image.setAttribute('src',x);
+                        setTurn('o');
+                        console.log(image);
+                        e.target.appendChild(image);
+                    }
+                    else{
+                        image.setAttribute('src',o);
+                        setTurn('x');
+                        e.target.appendChild(image);
+                    }
 
-            //etap1 change div active from turn 
-            const turn = document.querySelectorAll('.turn');
-            const image = document.createElement('img');
-            console.log(e.target.dataset.valeur);
-            image.setAttribute('src',"../assest/"+e.target.dataset.valeur +".png");
-            turn.forEach((ele) => {
-                 ele.classList.remove('turn-active');
-                 if(ele.dataset.div != e.target.dataset.valeur){
-                     ele.classList.add('turn-active');
-                 }
-              });
-
-            //etap2 change valeur to turn  
-              
-            if(e.target.dataset.valeur === 'x'){
-                setTurn('o');
-                console.log(image);
-                e.target.appendChild(image);
+                    //etap3 place icon in place la ou il doit place
+                        
+                }
+                else{
+                    console.log("nathing");
+                }
             }
-            else{
-                setTurn('x');
-                e.target.appendChild(image);
-            }
-
-            //etap3 place icon in place la ou il doit place
-            
-
-            
-         }
-         else{
-            console.log("nathing");
-         }
-    }
+        }
 
      //console.log(turn);
     //function to check winner in this game 
@@ -82,7 +81,7 @@ const Maingameui = function ({game}) {
                 <div className="border-div" >
                     {/* differents place for play */}
                     {places.map(elem => ( 
-                        <div className="place-div"  data-place={elem} data-valeur = {turn} onClick={(e) => (move(e)) }>
+                        <div className="place-div" data-place={elem} data-valeur = {turn} onClick={(e) => (move(e)) }>
                            {/* <img src="x" />  */}
                         </div>
                     ))}
