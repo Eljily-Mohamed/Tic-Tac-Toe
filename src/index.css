@@ -51,7 +51,7 @@ body{
 
 .startPage .main-div {
    /* background-color: chocolate; */
-   margin:100px auto;
+   margin:130px auto;
    display: flex;
    flex-wrap: wrap;
 }
@@ -137,9 +137,24 @@ body{
 
 .startPage .main-div .buttons button {
          padding:10px 5px ;
+         border-radius: 7px;
          cursor: pointer; 
+         margin: 0px 5px;
+         width: 150px;
+         font-family: 'Abel', sans-serif;
+         color:#000;
+         font-size: 15px;
+         font-weight: bold;
+
+}
+
+.button-cpu {
+      background-color: #3dc4f3;
+}
+.button-player {
+     background-color: #ff615f;
 }
 
 .buttons button:hover {
-      
+       background-color: green;
 }

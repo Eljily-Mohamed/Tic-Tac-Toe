@@ -26,6 +26,10 @@ const Mainstartpage = function () {
 
         // end code change mark 
 
+        const login = (e) => {
+             //on va injecte code here to redirecte vers page game 
+        }
+
         useEffect(() => {
             
         },[mark]);
@@ -57,8 +61,8 @@ const Mainstartpage = function () {
                 </div>
                 {/* div for le differents buttons */}
                 <div className="buttons">
-                     <button className="button-cpu" >New Game (vs CPU) </button>
-                     <button className="button-player">New Game (vs Player) </button>
+                     <button className="button-cpu"  data-player="cpu">New Game (vs CPU) </button>
+                     <button className="button-player" data-player="player">New Game (vs Player) </button>
                 </div>
              </div>
       
