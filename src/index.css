@@ -212,5 +212,16 @@ body{
 
  .view-game .border-div {
      background-color: #ff615f;
-
+     display: flex;
+     flex-wrap: wrap;
+     margin: 10px;
+     
+ }
+ .view-game .border-div .place-div {
+      width:calc((100% / 3) - 6px);
+      margin: 3px;
+      background-color: #fff;
+      padding:40px;
+      border-radius: 10px;
+      
  }
