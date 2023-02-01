@@ -240,7 +240,7 @@ body{
  /* styling Restart buttons */
 
  .buttons-restart {
-      width:200px;
+      width:400px;
       padding:50px;
       /* background-color: #ff615f; */
       margin: auto;
@@ -261,16 +261,19 @@ body{
  }
 
  .buttons-restart p {
-        width:300px;
+        width:600px;
         color : rgb(4, 128, 204);
-        font-size: 15px;
+        font-size: 20px;
         display: flex;
         margin-top:20px;
+        justify-content: center;
  }
 
  .buttons-restart p span{
-       color: #000000;
+       color: #ffffff;
        font-weight: bold;
        font-size:30px;
-       
+       margin-left:4px;
+       margin-right: 4px;
+       margin-top: -5px;
 }
