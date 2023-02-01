@@ -21,8 +21,8 @@ const Maingameui = function ({game}) {
     // function fot move 
 
     const move =  (e) => {
-         if(x==0){
                 if(e.target.tagName === "DIV"){
+                    if(placesDisponible.includes(e.target.dataset.place)){
                     //etap1 change div active from turn 
                     const turn = document.querySelectorAll('.turn');
                     const image = document.createElement('img');
@@ -34,32 +34,36 @@ const Maingameui = function ({game}) {
                         }
                     });
 
-                    //etap2 change valeur to turn  
+                    //etap2 change valeur to turn  et place icon
                     
                     if(e.target.dataset.valeur === 'x'){
                         image.setAttribute('src',x);
                         setTurn('o');
-                        console.log(image);
                         e.target.appendChild(image);
+                        //and desactive this element 
+                        
                     }
                     else{
                         image.setAttribute('src',o);
                         setTurn('x');
                         e.target.appendChild(image);
+                        //and desactive this element 
+                        
                     }
 
-                    //etap3 place icon in place la ou il doit place
+                    //et
                         
                 }
-                else{
-                    console.log("nathing");
-                }
+              
+            }else{
+                console.log("nathing");
             }
         }
 
      //console.log(turn);
     //function to check winner in this game 
-
+    
+    
    
     useEffect (() =>{
 
