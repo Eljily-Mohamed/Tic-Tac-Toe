@@ -79,7 +79,6 @@ const Maingameui = function ({game}) {
     }
 
 
-
     //game-Over 
 
     const endGame = (message) => {
