@@ -14,12 +14,13 @@ const Maingameui = function ({game}) {
     
     const [placeReserve , setPlaseReserve] = useState([]);
     const [valeus , setValeus] = useState([]);
+    const [gameEnd , setGameEnd] = useState(false);
      
     // function fot move 
 
     const move =  (e) => {
                 if(e.target.tagName === "DIV"){
-                    if(true){
+                    if(!placeReserve.includes(e.target.dataset.place)){
                     //etap1 change div active from turn 
                     //to get placeReserve
                     const placesempty = [];
@@ -69,26 +70,52 @@ const Maingameui = function ({game}) {
             }else{
                 console.log("nathing");
             }
+
+            checkWiner();
         }
 
-     //console.log(turn);
-    //function to check winner in this game 
-      
+    //console.log(turn);
+
+    //function to check winner in this game   
     const checkWiner = () =>{
-           
+           if(valeus.length < 8  && placeReserve.length < 8 ){
+            // here logique of this function in case player win or lose game
+            //console.log("pas Ancore termine");le cas x win 
+            /*1-[0][x][1][x][2][x] = 
+              2-[0][x][3][x][6][x]
+              3-[3][x][5][x][8][x]
+              4-[6][x][7][x][8][x]
+              5-[3][x][4][x][5][x]
+              6-[2][x][4][x][7][x]
+              //diagonales
+              7-[0][x][4][x][8][x]
+              8-[3][x][5][x][4][x]
+
+              meme choose pour y 
+            */
+             
+              if([])
+            
+
+             setGameEnd(true);
+           }//here in case drawing
+           else {
+             //call function end Game with message draw 
+             endGame("this is drawing");
+             setGameEnd(true);
+           }
     }
 
 
     //game-Over 
-
     const endGame = (message) => {
-         console("this is "+message);
+         console.log("this is "+message);
     }
 
    
     useEffect (() =>{
 
-    },[mark])
+    },[gameEnd])
 
     return (
         <div  className="maingameui">
