@@ -166,7 +166,7 @@ body{
       width :500px;
       margin: auto;
       margin-top: 30px;
-      color : white; 
+      background-color: #000;
 }
 
 .gameui .maingameui .view-game{
@@ -198,13 +198,14 @@ body{
      font-family: 'Abel', sans-serif;
      font-size: 30px;
      font-weight: 800;
+     color:#55bae9;
  }
  
  .turn-div .turn-active {
-    background-color:#55bae9;
+    background-color:#55bae9 ;
  }
  
  .turn-div .turn-active p{
-   color:#fff;
+   color:#fff !important;
  }
  
