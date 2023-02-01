@@ -74,14 +74,18 @@ const Maingameui = function ({game}) {
      //console.log(turn);
     //function to check winner in this game 
       
-
     const checkWiner = () =>{
            
     }
 
+
+
     //game-Over 
 
-    
+    const endGame = (message) => {
+         console("this is "+message);
+    }
+
    
     useEffect (() =>{
 
