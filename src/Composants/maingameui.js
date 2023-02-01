@@ -1,9 +1,8 @@
 
-
 const Maingameui = function () {
     return (
         <div  className="maingameui">
-            
+          
         </div>
     );
 }
