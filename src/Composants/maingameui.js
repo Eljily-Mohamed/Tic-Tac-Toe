@@ -7,7 +7,6 @@ const Maingameui = function ({game}) {
     const [mark , setMark ] = useState (game.mark) ;
     const [player , setPlayer ] = useState(game.player);
     const places = [0,1,2,3,4,5,6,7,8];
-    const globaleData = [];
     
     //const for turn game  
     const [turn , setTurn] = useState("x");
@@ -52,8 +51,6 @@ const Maingameui = function ({game}) {
                         valuesArray.push(e.target.dataset.valeur);
                         setPlaseReserve(placesempty);
                         setValeus(valuesArray);
-                        trieArray();
-                        checkWiner();
                     }
                     else{
                         image.setAttribute('src',o);
@@ -63,8 +60,6 @@ const Maingameui = function ({game}) {
                         valuesArray.push(e.target.dataset.valeur);
                         setPlaseReserve(placesempty);
                         setValeus(valuesArray);
-                        trieArray();
-                        checkWiner();
                     }
                  
                 }
@@ -77,22 +72,10 @@ const Maingameui = function ({game}) {
 
     //console.log(turn);
 
-    //function trie 
-    const trieArray = () => {
-         for (let i = 0; i < 8; i++) {
-            placeReserve.forEach((elem) => {
-                   if(elem == i){
-                       globaleData.push(valeus[i]);
-                   }
-            })
-          }
-        }
-
 
     //function to check winner in this game   
     const checkWiner = () =>{
            if(valeus.length < 9  && placeReserve.length < 9 ){
-            console.log(globaleData);
             // here logique of this function in case player win or lose game
             //console.log("pas Ancore termine");le cas x win 
             /*1-[0][x][1][x][2][x] = 
@@ -107,11 +90,8 @@ const Maingameui = function ({game}) {
 
               meme choose pour y 
             */
-             
-              if(globaleData[0]===globaleData[2]===globaleData[5]){
-                endGame(` this is winner ${valeus[0]}`)
-              }
-        
+           
+              
              setGameEnd(true);
            }//here in case drawing
            else {
@@ -122,18 +102,17 @@ const Maingameui = function ({game}) {
     }
 
 
-    // console.log(valeus);
-    // console.log(placeReserve);
+    console.log(valeus);
+    console.log(placeReserve);
 
     //game-Over 
     const endGame = (message) => {
          console.log("this is "+message);
     }
-
     
     useEffect (() =>{
-
-    },[gameEnd])
+             checkWiner()
+    },)
 
     return (
         <div  className="maingameui">

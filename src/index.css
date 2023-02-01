@@ -21,7 +21,7 @@
 }
 
 body{
-  background-color: #eeeee4;
+  background-color:#71db65;
 }
 
 
@@ -228,6 +228,8 @@ body{
       justify-content:center;
       cursor: pointer;
  }
+
+
 
  .place-div img{
       width:60px;
