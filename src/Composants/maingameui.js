@@ -40,7 +40,8 @@ const Maingameui = function ({game}) {
                         image.setAttribute('src',x);
                         setTurn('o');
                         e.target.appendChild(image);
-                        //and desactive this element 
+                        //update places reserve 
+                        
                         
                     }
                     else{
@@ -48,7 +49,7 @@ const Maingameui = function ({game}) {
                         setTurn('x');
                         e.target.appendChild(image);
                         //and desactive this element 
-                        
+                        placesReseve.push()
                     }
 
                     //et
@@ -63,7 +64,7 @@ const Maingameui = function ({game}) {
      //console.log(turn);
     //function to check winner in this game 
     
-    
+
    
     useEffect (() =>{
 
