@@ -88,7 +88,7 @@ const Maingameui = function ({game}) {
    
     useEffect (() =>{
 
-    },[mark ])
+    },[mark])
 
     return (
         <div  className="maingameui">
