@@ -7,6 +7,16 @@ const Maingameui = function ({game}) {
     const [mark , setMark ] = useState (game.mark) ;
     const [player , setPlayer ] = useState(game.player);
     const places = [0,1,2,3,4,5,6,7,8];
+    const winningConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+     ];
 
     const arraypos = ['','','','','','','','',''];
     
@@ -95,48 +105,65 @@ const Maingameui = function ({game}) {
 
               meme choose pour y 
             */
-              if(valeus[0].startsWith('x') && valeus[1].startsWith('x') && valeus[2].startsWith('x') ){
-                            endGame(`${valeus[0]} Win`);
-                            setGameEnd(true);
-              }
-              if(valeus[0].startsWith('x') && valeus[3].startsWith('x') && valeus[6].startsWith('x')){
-                            endGame(`${valeus[0]} Win`);
-                            setGameEnd(true);
-              }
-              if(valeus[2].startsWith('x') && valeus[5].startsWith('x') && valeus[8].startsWith('x')){
-                            endGame(`${valeus[2]} Win`);
-                            setGameEnd(true);
-              }
-              if(valeus[6].startsWith('x') && valeus[7].startsWith('x') && valeus[8].startsWith('x')){
-                            endGame(`${valeus[6]} Win`);
-                            setGameEnd(true);               
-              }
-              if(valeus[3].startsWith('x') && valeus[4].startsWith('x') && valeus[5].startsWith('x')){
-                            endGame(`${valeus[3]} Win`);
-                            setGameEnd(true);
-              }
-              if(valeus[1].startsWith('x') && valeus[4].startsWith('x') && valeus[7].startsWith('x')){
-                            endGame(`${valeus[1]} Win`);
-                            setGameEnd(true);
-              }
-              if(valeus[0].startsWith('x') && valeus[4].startsWith('x') && valeus[8].startsWith('x')){
-                            endGame(`${valeus[0]} Win`);
-                            setGameEnd(true);
-              }
-              if(valeus[2].startsWith('x') && valeus[3].startsWith('x') && valeus[6].startsWith('x')){
-                            endGame(`${valeus[2]} Win`);
-                            setGameEnd(true);
-              }
-              if(!valeus.includes('')){
-                            endGame("drow game");
-              }
+            //   if(valeus[0].startsWith('x') && valeus[1].startsWith('x') && valeus[2].startsWith('x') ){
+            //                 endGame(`${valeus[0]} Win`);
+            //                 setGameEnd(true);
+            //   }
+            //   if(valeus[0].startsWith('x') && valeus[3].startsWith('x') && valeus[6].startsWith('x')){
+            //                 endGame(`${valeus[0]} Win`);
+            //                 setGameEnd(true);
+            //   }
+            //   if(valeus[2].startsWith('x') && valeus[5].startsWith('x') && valeus[8].startsWith('x')){
+            //                 endGame(`${valeus[2]} Win`);
+            //                 setGameEnd(true);
+            //   }
+            //   if(valeus[6].startsWith('x') && valeus[7].startsWith('x') && valeus[8].startsWith('x')){
+            //                 endGame(`${valeus[6]} Win`);
+            //                 setGameEnd(true);               
+            //   }
+            //   if(valeus[3].startsWith('x') && valeus[4].startsWith('x') && valeus[5].startsWith('x')){
+            //                 endGame(`${valeus[3]} Win`);
+            //                 setGameEnd(true);
+            //   }
+            //   if(valeus[1].startsWith('x') && valeus[4].startsWith('x') && valeus[7].startsWith('x')){
+            //                 endGame(`${valeus[1]} Win`);
+            //                 setGameEnd(true);
+            //   }
+            //   if(valeus[0].startsWith('x') && valeus[4].startsWith('x') && valeus[8].startsWith('x')){
+            //                 endGame(`${valeus[0]} Win`);
+            //                 setGameEnd(true);
+            //   }
+            //   if(valeus[2].startsWith('x') && valeus[3].startsWith('x') && valeus[6].startsWith('x')){
+            //                 endGame(`${valeus[2]} Win`);
+            //                 setGameEnd(true);
+            //   }
+            //   if(!valeus.includes('')){
+            //                 endGame("drow game");
+            //   }
 
+              for (let i = 0; i <= 7; i++) {
+                const winCondition = winningConditions[i];
+                const a = valeus[winCondition[0]];
+                const b = valeus[winCondition[1]];
+                const c = valeus[winCondition[2]];
+                if (a === "" || b === "" || c === "") {
+                  continue;
+                }
+                if (a === b && b === c) {
+                    endGame(`${a} Win's`);
+                    setGameEnd(true);
+                    return;
+                }
+              }
+            
+              if (!valeus.includes("")) endGame("Drow game");
+        
     }
 
     //game-Over 
     const endGame = (message) => {
          console.log("this is "+message);
-         setValeus(null);
+         
     }
     
     useEffect (() =>{
