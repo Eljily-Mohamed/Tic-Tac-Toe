@@ -6,7 +6,7 @@ const Maingameui = function ({game}) {
     //on can declare function pour recupere la valeur de notre variables 
     const [mark , setMark ] = useState (game.mark) ;
     const [player , setPlayer ] = useState(game.player);
-    const places = [0,1,2,3,4,5,6,7,8];
+    const places = ['0','1','2','3','4','5','6','7','8'];
     const winningConditions = [
         [0, 1, 2],
         [3, 4, 5],
@@ -26,9 +26,10 @@ const Maingameui = function ({game}) {
     const [placeReserve , setPlaseReserve] = useState([]);
     const [valeus , setValeus] = useState(arraypos);
     const [gameEnd , setGameEnd] = useState(false);
-     
-    // function fot move 
+    const [win , setWin] = useState("");
 
+    // function fot move 
+    const elementes = document.querySelectorAll('.place-div');
     
     const move =  (e) => {
                 if(e.target.tagName === "DIV"){
@@ -151,6 +152,7 @@ const Maingameui = function ({game}) {
                 }
                 if (a === b && b === c) {
                     endGame(`${a} Win's`);
+                    setWin(a);
                     setGameEnd(true);
                     return;
                 }
@@ -163,7 +165,8 @@ const Maingameui = function ({game}) {
     //game-Over 
     const endGame = (message) => {
          console.log("this is "+message);
-         
+         setPlaseReserve(places);
+         //console.log(placeReserve);
     }
     
     useEffect (() =>{
@@ -191,6 +194,10 @@ const Maingameui = function ({game}) {
                         </div>
                     ))}
                 </div>
+             </div>
+             <div className="buttons-restart">
+                 <button>Restart</button>
+                 <p>Good Game <span>{win.toUpperCase()}</span> Wins</p>
              </div>
         </div>
     );
