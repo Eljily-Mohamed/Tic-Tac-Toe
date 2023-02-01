@@ -208,3 +208,9 @@ body{
    color:#fff !important;
  }
  
+ /* styling place de elementes in div border  */
+
+ .view-game .border-div {
+     background-color: #ff615f;
+
+ }

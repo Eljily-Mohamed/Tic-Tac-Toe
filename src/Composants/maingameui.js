@@ -18,13 +18,13 @@ const Maingameui = function ({game}) {
                    </div>
                 </div>
                 {/* Border jeux */}
-                <div className="Border" >
+                <div className="border-div" >
                     {/* differents place for play */}
-                    {places.map((elem) => {
+                    {places.map(elem => ( 
                         <div className="place-div">
-                           <p>div place </p>
+                           <p>div place</p>
                         </div>
-                    })}
+                    ))}
                 </div>
              </div>
         </div>
