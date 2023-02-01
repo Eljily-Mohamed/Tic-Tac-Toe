@@ -1,4 +1,6 @@
 import { useEffect , useState } from "react";
+import x from "../assest/x.png";
+import o from "../assest/o.png";
 
 const Maingameui = function ({game}) {
     //on can declare function pour recupere la valeur de notre variables 
@@ -25,7 +27,7 @@ const Maingameui = function ({game}) {
                     {/* differents place for play */}
                     {places.map(elem => ( 
                         <div className="place-div">
-                           <p>div place</p>
+                           <img src={x} />
                         </div>
                     ))}
                 </div>
