@@ -27,10 +27,12 @@ const Maingameui = function ({game}) {
     const [valeus , setValeus] = useState(arraypos);
     const [gameEnd , setGameEnd] = useState(false);
     const [win , setWin] = useState("");
+
     
     // function fot move 
     const elementes = document.querySelectorAll('.place-div');
     const hide = document.querySelector('.buttons-restart');
+    const hideSpan = document.querySelector('.span-win');
 
     const move =  (e) => {
                 if(e.target.tagName === "DIV"){
@@ -93,65 +95,25 @@ const Maingameui = function ({game}) {
 
     //function to check winner in this game   
     const checkWiner = () =>{
-            // here logique of this function in case player win or lose game
-            //console.log("pas Ancore termine");le cas x win 
-            /*1-[0][x][1][x][2][x] = 
-              2-[0][x][3][x][6][x]
-              3-[3][x][5][x][8][x]
-              4-[6][x][7][x][8][x]
-              5-[3][x][4][x][5][x]
-              6-[2][x][4][x][7][x]
-              //diagonales
-              7-[0][x][4][x][8][x]
-              8-[3][x][5][x][4][x]
-
-              meme choose pour y 
-            */
-            //   if(valeus[0].startsWith('x') && valeus[1].startsWith('x') && valeus[2].startsWith('x') ){
-            //                 endGame(`${valeus[0]} Win`);
-            //                 setGameEnd(true);
-            //   }
-            //   if(valeus[0].startsWith('x') && valeus[3].startsWith('x') && valeus[6].startsWith('x')){
-            //                 endGame(`${valeus[0]} Win`);
-            //                 setGameEnd(true);
-            //   }
-            //   if(valeus[2].startsWith('x') && valeus[5].startsWith('x') && valeus[8].startsWith('x')){
-            //                 endGame(`${valeus[2]} Win`);
-            //                 setGameEnd(true);
-            //   }
-            //   if(valeus[6].startsWith('x') && valeus[7].startsWith('x') && valeus[8].startsWith('x')){
-            //                 endGame(`${valeus[6]} Win`);
-            //                 setGameEnd(true);               
-            //   }
-            //   if(valeus[3].startsWith('x') && valeus[4].startsWith('x') && valeus[5].startsWith('x')){
-            //                 endGame(`${valeus[3]} Win`);
-            //                 setGameEnd(true);
-            //   }
-            //   if(valeus[1].startsWith('x') && valeus[4].startsWith('x') && valeus[7].startsWith('x')){
-            //                 endGame(`${valeus[1]} Win`);
-            //                 setGameEnd(true);
-            //   }
-            //   if(valeus[0].startsWith('x') && valeus[4].startsWith('x') && valeus[8].startsWith('x')){
-            //                 endGame(`${valeus[0]} Win`);
-            //                 setGameEnd(true);
-            //   }
-            //   if(valeus[2].startsWith('x') && valeus[3].startsWith('x') && valeus[6].startsWith('x')){
-            //                 endGame(`${valeus[2]} Win`);
-            //                 setGameEnd(true);
-            //   }
-            //   if(!valeus.includes('')){
-            //                 endGame("drow game");
-            //   }
-
+              let elemntsColors = [];  
               for (let i = 0; i <= 7; i++) {
                 const winCondition = winningConditions[i];
                 const a = valeus[winCondition[0]];
                 const b = valeus[winCondition[1]];
                 const c = valeus[winCondition[2]];
+
+                // console.log(placeReserve[winCondition[0]]);
+                // console.log(placeReserve[winCondition[1]]);
+                // console.log(placeReserve[winCondition[2]]);
+
+
                 if (a === "" || b === "" || c === "") {
                   continue;
                 }
                 if (a === b && b === c) {
+                    elemntsColors.push(placeReserve[winCondition[0]])  
+                    elemntsColors.push (placeReserve[winCondition[1]])
+                    elemntsColors.push(placeReserve[winCondition[2]])
                     endGame(`${a} Win's`);
                     setWin(a);
                     setGameEnd(true);
@@ -168,11 +130,19 @@ const Maingameui = function ({game}) {
          console.log("this is "+message);
          setPlaseReserve(places);
          hide.style.display = "flex";
+         colorCase();
     }
     //colors case 
-
+    
     const colorCase =  () => {
-        
+         if(win === 'o') hideSpan.style.color = "#3ec5f4"
+         if(win === 'x') hideSpan.style.color = "#ff615f"
+    }
+
+    //colors div 
+
+    const colorsDiv = ([]) => {
+         
     }
 
     const restartGame = () =>{
@@ -207,7 +177,7 @@ const Maingameui = function ({game}) {
              </div>
              <div className="buttons-restart">
                  <button onClick={restartGame}>Restart</button>
-                 <p>Good Game <span>{win.toUpperCase()}</span> Wins</p>
+                 <p>Good Game <span className="span-win">{win.toUpperCase()}</span> Wins</p>
              </div>
         </div>
     );
