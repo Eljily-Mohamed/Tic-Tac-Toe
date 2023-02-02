@@ -88,11 +88,6 @@ const Maingameui = function ({game}) {
             checkWiner()
         }
          
-
-
-    //console.log(turn);
-
-
     //function to check winner in this game   
     const checkWiner = () =>{
               let elemntsColors = [];  
@@ -114,6 +109,7 @@ const Maingameui = function ({game}) {
                     elemntsColors.push(placeReserve[winCondition[0]])  
                     elemntsColors.push (placeReserve[winCondition[1]])
                     elemntsColors.push(placeReserve[winCondition[2]])
+                    colorsDiv(elemntsColors)
                     endGame(`${a} Win's`);
                     setWin(a);
                     setGameEnd(true);
@@ -127,7 +123,6 @@ const Maingameui = function ({game}) {
 
     //game-Over 
     const endGame = (message) => {
-         console.log("this is "+message);
          setPlaseReserve(places);
          hide.style.display = "flex";
          colorCase();
@@ -142,7 +137,14 @@ const Maingameui = function ({game}) {
     //colors div 
 
     const colorsDiv = (elementsColors) => {
-         console.log(elementsColors)
+        for(let i = 0; i < elementsColors.length; i++){
+             elementes.forEach((ele) => {
+                 if(ele.dataset.place == elementsColors[i]){
+                      ele.style.backgroundColor = "green";
+                 }
+                //console.log(ele);
+             } )
+        }
     }
 
     const restartGame = () =>{
@@ -151,7 +153,7 @@ const Maingameui = function ({game}) {
     
     useEffect (() =>{
              checkWiner();
-    },)
+    },[gameEnd])
 
     return (
         <div  className="maingameui">
