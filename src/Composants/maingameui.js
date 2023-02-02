@@ -168,6 +168,10 @@ const Maingameui = function ({game}) {
          setPlaseReserve(places);
          //console.log(placeReserve);
     }
+
+    const restartGame = (){
+        
+    }
     
     useEffect (() =>{
              checkWiner();
