@@ -27,10 +27,11 @@ const Maingameui = function ({game}) {
     const [valeus , setValeus] = useState(arraypos);
     const [gameEnd , setGameEnd] = useState(false);
     const [win , setWin] = useState("");
-
+    
     // function fot move 
     const elementes = document.querySelectorAll('.place-div');
-    
+    const hide = document.querySelector('.buttons-restart');
+
     const move =  (e) => {
                 if(e.target.tagName === "DIV"){
                     if(!placeReserve.includes(e.target.dataset.place)){
@@ -166,11 +167,11 @@ const Maingameui = function ({game}) {
     const endGame = (message) => {
          console.log("this is "+message);
          setPlaseReserve(places);
-         //console.log(placeReserve);
+         hide.style.display = "flex";
     }
 
-    const restartGame = (){
-        
+    const restartGame = () =>{
+        window.location='/';
     }
     
     useEffect (() =>{
@@ -200,7 +201,7 @@ const Maingameui = function ({game}) {
                 </div>
              </div>
              <div className="buttons-restart">
-                 <button>Restart</button>
+                 <button onClick={restartGame}>Restart</button>
                  <p>Good Game <span>{win.toUpperCase()}</span> Wins</p>
              </div>
         </div>
