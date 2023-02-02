@@ -241,7 +241,7 @@ body{
 
  .buttons-restart {
       width:400px;
-      padding:20px;
+      padding:30px;
       /* background-color: #ff615f; */
       margin: auto;
       display: none;
@@ -258,6 +258,8 @@ body{
      padding: 15px 40px;
      font-weight: bold;
      background-color: chocolate;
+     outline: none;
+     border: none;
  }
 
  .buttons-restart p {
@@ -267,13 +269,21 @@ body{
         display: flex;
         margin-top:20px;
         justify-content: center;
+        font-family: 'Abel', sans-serif;
  }
 
  .buttons-restart p span{
-       color: #ffffff;
        font-weight: bold;
        font-size:30px;
        margin-left:4px;
        margin-right: 4px;
        margin-top: -5px;
+       font-family: 'Abel', sans-serif;
+}
+
+.buttons-restart .x{
+        color: #ff615f;
+}
+.buttons-restart .o{
+     color: #3ec5f4;
 }

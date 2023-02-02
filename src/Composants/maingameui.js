@@ -27,7 +27,7 @@ const Maingameui = function ({game}) {
     const [valeus , setValeus] = useState(arraypos);
     const [gameEnd , setGameEnd] = useState(false);
     const [win , setWin] = useState("");
-
+    const [message , setMessage] = useState("");
     
     // function fot move 
     const elementes = document.querySelectorAll('.place-div');
@@ -97,63 +97,63 @@ const Maingameui = function ({game}) {
                 const b = valeus[winCondition[1]];
                 const c = valeus[winCondition[2]];
 
-                // console.log(placeReserve[winCondition[0]]);
-                // console.log(placeReserve[winCondition[1]]);
-                // console.log(placeReserve[winCondition[2]]);
+             
 
 
                 if (a === "" || b === "" || c === "") {
                   continue;
                 }
-                if (a === b && b === c) {
-                    elemntsColors.push(placeReserve[winCondition[0]])  
-                    elemntsColors.push (placeReserve[winCondition[1]])
-                    elemntsColors.push(placeReserve[winCondition[2]])
-                    colorsDiv(elemntsColors)
-                    endGame(`${a} Win's`);
+                if (a === b && b === c) { 
+                console.log(places[winCondition[0]]);
+                console.log(places[winCondition[1]]);
+                console.log(places[winCondition[2]]);
+                    elemntsColors.push(places[winCondition[0]])  
+                    elemntsColors.push (places[winCondition[1]])
+                    elemntsColors.push(places[winCondition[2]])
+                    console.log(elemntsColors);
+
+                    endGame(`Win's`);
                     setWin(a);
                     setGameEnd(true);
+                    colorsDiv(elemntsColors);
                     return;
                 }
               }
             
-              if (!valeus.includes("")) endGame("Drow game");
+              if (!valeus.includes("")) endGame("Tie");
         
     }
 
     //game-Over 
     const endGame = (message) => {
          setPlaseReserve(places);
+         setMessage(message);
          hide.style.display = "flex";
-         colorCase();
     }
-    //colors case 
-    
-    const colorCase =  () => {
-         if(win === 'o') hideSpan.style.color = "#3ec5f4"
-         if(win === 'x') hideSpan.style.color = "#ff615f"
-    }
-
-    //colors div 
 
     const colorsDiv = (elementsColors) => {
         for(let i = 0; i < elementsColors.length; i++){
              elementes.forEach((ele) => {
-                 if(ele.dataset.place == elementsColors[i]){
+                 if(ele.dataset.place === elementsColors[i]){
                       ele.style.backgroundColor = "green";
                  }
                 //console.log(ele);
              } )
         }
+        console.log(elementsColors);
     }
+
+    //console.log(elementes);
 
     const restartGame = () =>{
         window.location='/';
     }
     
     useEffect (() =>{
-             checkWiner();
-    },[gameEnd])
+             if(!gameEnd){
+                checkWiner();
+             }
+    })
 
     return (
         <div  className="maingameui">
@@ -179,7 +179,7 @@ const Maingameui = function ({game}) {
              </div>
              <div className="buttons-restart">
                  <button onClick={restartGame}>Restart</button>
-                 <p>Good Game <span className="span-win">{win.toUpperCase()}</span> Wins</p>
+                 <p>Good Game <span className={win}>{win.toUpperCase()}</span>{message}</p>
              </div>
         </div>
     );
