@@ -169,6 +169,11 @@ const Maingameui = function ({game}) {
          setPlaseReserve(places);
          hide.style.display = "flex";
     }
+    //colors case 
+
+    const colorCase =  () => {
+        
+    }
 
     const restartGame = () =>{
         window.location='/';
