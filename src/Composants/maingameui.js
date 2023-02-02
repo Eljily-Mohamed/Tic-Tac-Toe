@@ -141,8 +141,8 @@ const Maingameui = function ({game}) {
 
     //colors div 
 
-    const colorsDiv = ([]) => {
-         
+    const colorsDiv = (elementsColors) => {
+         console.log(elementsColors)
     }
 
     const restartGame = () =>{
